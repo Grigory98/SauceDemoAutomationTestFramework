@@ -2,21 +2,22 @@ import { Page, Locator } from '@playwright/test';
 
 import { BaseComponent } from "../BaseComponent";
 import { Button } from '../Button';
+import { Label } from '../Label';
 
 export class CartItem extends BaseComponent {
     readonly removeBtn: Button;
-    readonly price: Locator;
-    readonly title: Locator;
-    readonly description: Locator;
-    readonly quantity: Locator;
+    readonly price: Label;
+    readonly title: Label;
+    readonly description: Label;
+    readonly quantity: Label;
 
     constructor(page: Page, selectorLocator: string | Locator) {
         super(page, selectorLocator);
         this.removeBtn = new Button(this.page, this.root.locator('[data-test^="remove-sauce-labs-"]'));
-        this.price = this.root.locator('[data-test="inventory-item-price"]');
-        this.title = this.root.locator('[data-test="inventory-item-name"]');
-        this.description = this.root.locator('[data-test="inventory-item-desc"]');
-        this.quantity = this.root.locator('[data-test="item-quantity"]');
+        this.price = new Label(this.page, this.root.locator('[data-test="inventory-item-price"]'));
+        this.title = new Label(this.page, this.root.locator('[data-test="inventory-item-name"]'));
+        this.description = new Label(this.page, this.root.locator('[data-test="inventory-item-desc"]'));
+        this.quantity = new Label(this.page, this.root.locator('[data-test="item-quantity"]'));
     }
 
     /**
@@ -31,7 +32,7 @@ export class CartItem extends BaseComponent {
      * @returns Price.
      */
     async getPrice(): Promise<string> {
-        return this.price.innerText();
+        return this.price.getText();
     }
 
     /**
@@ -39,7 +40,7 @@ export class CartItem extends BaseComponent {
      * @returns Description.
      */
     async getDescription(): Promise<string> {
-        return this.description.innerText();
+        return this.description.getText();
     }
 
     /**
@@ -47,7 +48,7 @@ export class CartItem extends BaseComponent {
      * @returns Title.
      */
     async getTitle(): Promise<string> {
-        return this.title.innerText();
+        return this.title.getText();
     }
 
     /**
@@ -55,6 +56,6 @@ export class CartItem extends BaseComponent {
      * @returns Quantity.
      */
     async getQuantity(): Promise<string> {
-        return this.quantity.innerText();
+        return this.quantity.getText();
     }
 }

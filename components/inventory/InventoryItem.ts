@@ -2,19 +2,20 @@ import { Page, Locator } from '@playwright/test'
 
 import { BaseComponent } from '../BaseComponent';
 import { Button } from '../Button';
+import { Label } from '../Label';
 
 export class InventoryItem extends BaseComponent {
     readonly addBtn: Button;
-    readonly title: Locator;
-    readonly price: Locator;
-    readonly description: Locator;
+    readonly title: Label;
+    readonly price: Label;
+    readonly description: Label;
 
     constructor(page: Page, selector: string | Locator) {
         super(page, selector);
         this.addBtn = new Button(this.page, this.root.locator('[data-test^="add-to-cart-"]'));
-        this.title = this.root.locator('[data-test="inventory-item-name"]');
-        this.price = this.root.locator('[data-test="inventory-item-price"]');
-        this.description = this.root.locator('[data-test="inventory-item-desc"]');
+        this.title = new Label(this.page, this.root.locator('[data-test="inventory-item-name"]'));
+        this.price = new Label(this.page, this.root.locator('[data-test="inventory-item-price"]'));
+        this.description = new Label(this.page, this.root.locator('[data-test="inventory-item-desc"]'));
     }
 
     /**
@@ -29,7 +30,7 @@ export class InventoryItem extends BaseComponent {
      * @returns Price.
      */
     async getPrice(): Promise<number> {
-        return this.formatPrice(await this.price.innerText());
+        return this.formatPrice(await this.price.getText());
     }
 
     /**
@@ -37,7 +38,7 @@ export class InventoryItem extends BaseComponent {
      * @returns Description.
      */
     async getDescription(): Promise<string> {
-        return this.description.innerText();
+        return this.description.getText();
     }
 
     /**
@@ -45,7 +46,7 @@ export class InventoryItem extends BaseComponent {
      * @returns Title.
      */
     async getTitle(): Promise<string> {
-        return this.title.innerText();
+        return this.title.getText();
     }
 
     /**

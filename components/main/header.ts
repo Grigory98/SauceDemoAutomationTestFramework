@@ -2,15 +2,16 @@ import { Page, Locator } from '@playwright/test';
 
 import { BaseComponent } from '../BaseComponent';
 import { Button } from '../Button';
+import { Label } from '../Label';
 
 export class Header extends BaseComponent {
     readonly basketBtn: Button;
-    readonly basketCountItems: Locator;
+    readonly basketCountItems: Label;
 
     constructor(page: Page, selectorLocator: string | Locator) {
         super(page, selectorLocator);
         this.basketBtn = new Button(this.page, '[data-test="shopping-cart-link"]');
-        this.basketCountItems = this.page.locator('[data-test="shopping-cart-badge"]');
+        this.basketCountItems = new Label(this.page, '[data-test="shopping-cart-badge"]');
     }
 
     /**
@@ -31,7 +32,7 @@ export class Header extends BaseComponent {
             return 0;
         }
 
-        let num = Number(await (this.basketCountItems.innerText()));
+        let num = Number(await (this.basketCountItems.getText()));
         return isNaN(num) ? 0 : num;
     }
 }
