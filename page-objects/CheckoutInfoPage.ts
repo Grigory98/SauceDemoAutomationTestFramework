@@ -13,11 +13,11 @@ export class CheckoutInfoPage extends BasePage {
 
     constructor(page: Page) {
         super(page);
-        this.firstName = new Input(page, '[data-test="firstName"]');
-        this.lastName = new Input(page, '[data-test="lastName"]');
-        this.zip = new Input(page, '[data-test="postalCode"]');
-        this.cancelBtn = new Button(page, '[data-test="cancel"]');
-        this.continueBtn = new Button(page , '[data-test="continue"]');
+        this.firstName = new Input(this.page, '[data-test="firstName"]');
+        this.lastName = new Input(this.page, '[data-test="lastName"]');
+        this.zip = new Input(this.page, '[data-test="postalCode"]');
+        this.cancelBtn = new Button(this.page, '[data-test="cancel"]');
+        this.continueBtn = new Button(this.page , '[data-test="continue"]');
     }
 
     /**

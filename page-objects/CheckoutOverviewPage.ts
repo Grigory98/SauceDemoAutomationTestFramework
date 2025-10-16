@@ -2,25 +2,26 @@ import { Page, Locator } from '@playwright/test';
 
 import { BasePage } from './BasePage';
 import { Button } from '../components/Button';
+import { Label } from '../components/Label';
 
 export class CheckoutOverviewPage extends BasePage {
     readonly cancelBtn: Button;
     readonly finishBtn: Button;
-    readonly paymentInfo: Locator;
-    readonly shippingInfo: Locator;
-    readonly itemTotal: Locator;
-    readonly tax: Locator;
-    readonly total: Locator;
+    readonly paymentInfo: Label;
+    readonly shippingInfo: Label;
+    readonly itemTotal: Label;
+    readonly tax: Label;
+    readonly total: Label;
 
     constructor(page: Page) {
         super(page);
         this.cancelBtn = new Button(this.page, '[data-test="cancel"]');
         this.finishBtn = new Button(this.page, '[data-test="finish"]');
-        this.paymentInfo = this.page.locator('[data-test="payment-info-value"]');
-        this.shippingInfo = this.page.locator('[data-test="shipping-info-value"]');
-        this.itemTotal = this.page.locator('[data-test="subtotal-label"]');
-        this.tax = this.page.locator('[data-test="tax-label"]');
-        this.total = this.page.locator('[data-test="total-label"]');
+        this.paymentInfo = new Label(this.page, '[data-test="payment-info-value"]');
+        this.shippingInfo = new Label(this.page, '[data-test="shipping-info-value"]');
+        this.itemTotal = new Label(this.page, '[data-test="subtotal-label"]');
+        this.tax = new Label(this.page, '[data-test="tax-label"]');
+        this.total = new Label(this.page, '[data-test="total-label"]');
     }
 
     /**
@@ -42,7 +43,7 @@ export class CheckoutOverviewPage extends BasePage {
      * @returns Payment info text.
      */
     async getPaymentInfo(): Promise<string> {
-        return this.paymentInfo.innerText();
+        return this.paymentInfo.getText();
     }
 
     /**
@@ -50,7 +51,7 @@ export class CheckoutOverviewPage extends BasePage {
      * @returns Shipping info.
      */
     async getShippingInfo(): Promise<string> {
-        return this.shippingInfo.innerText();
+        return this.shippingInfo.getText();
     }
 
     /**
@@ -58,7 +59,7 @@ export class CheckoutOverviewPage extends BasePage {
      * @returns Item total price.
      */
     async getItemTotalPrice(): Promise<number> {
-        return this.formatPrice(await this.itemTotal.innerText())
+        return this.formatPrice(await this.itemTotal.getText())
     }
 
     /**
@@ -66,7 +67,7 @@ export class CheckoutOverviewPage extends BasePage {
      * @returns Tax.
      */
     async getTax(): Promise<number> {
-        return this.formatPrice(await this.tax.innerText())
+        return this.formatPrice(await this.tax.getText())
     }
 
     /**
@@ -74,7 +75,7 @@ export class CheckoutOverviewPage extends BasePage {
      * @returns Total price.
      */
     async getTotal(): Promise<number> {
-        return this.formatPrice(await this.total.innerText())
+        return this.formatPrice(await this.total.getText())
     }
 
     /**
