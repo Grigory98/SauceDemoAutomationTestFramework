@@ -3,6 +3,7 @@ import { Page, Locator } from '@playwright/test'
 import { BaseComponent } from '../BaseComponent';
 import { Button } from '../Button';
 import { Label } from '../Label';
+import { Formatter } from '../../Tools/Formatter';
 
 export class InventoryItem extends BaseComponent {
     readonly addBtn: Button;
@@ -30,7 +31,7 @@ export class InventoryItem extends BaseComponent {
      * @returns Price.
      */
     async getPrice(): Promise<number> {
-        return this.formatPrice(await this.price.getText());
+        return Formatter.formatPrice(await this.price.getText());
     }
 
     /**
@@ -47,14 +48,5 @@ export class InventoryItem extends BaseComponent {
      */
     async getTitle(): Promise<string> {
         return this.title.getText();
-    }
-
-    /**
-     * Get string with price and convert price to number.
-     * @param text Text with price.
-     * @returns Price as number.
-     */
-    private formatPrice(text: string): number {
-        return Number(text.replace(/[^0-9.]/g, ''));
     }
 }

@@ -3,6 +3,7 @@ import { Page, Locator } from '@playwright/test';
 import { BasePage } from './BasePage';
 import { Button } from '../components/Button';
 import { Label } from '../components/Label';
+import { Formatter } from '../Tools/Formatter';
 
 export class CheckoutOverviewPage extends BasePage {
     readonly cancelBtn: Button;
@@ -59,7 +60,7 @@ export class CheckoutOverviewPage extends BasePage {
      * @returns Item total price.
      */
     async getItemTotalPrice(): Promise<number> {
-        return this.formatPrice(await this.itemTotal.getText())
+        return Formatter.formatPrice(await this.itemTotal.getText())
     }
 
     /**
@@ -67,7 +68,7 @@ export class CheckoutOverviewPage extends BasePage {
      * @returns Tax.
      */
     async getTax(): Promise<number> {
-        return this.formatPrice(await this.tax.getText())
+        return Formatter.formatPrice(await this.tax.getText())
     }
 
     /**
@@ -75,15 +76,6 @@ export class CheckoutOverviewPage extends BasePage {
      * @returns Total price.
      */
     async getTotal(): Promise<number> {
-        return this.formatPrice(await this.total.getText())
-    }
-
-    /**
-     * Get string with price and convert price to number.
-     * @param text Text with price.
-     * @returns Price as number.
-     */
-    private formatPrice(text: string): number {
-        return Number(text.replace(/[^0-9.]/g, ''));
+        return Formatter.formatPrice(await this.total.getText())
     }
 }
