@@ -1,13 +1,14 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,7 +25,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --reporter=html
+        run: npx playwright test --reporter=html --output=playwright-report
 
       - name: Upload Playwright HTML report
         if: always()
@@ -44,7 +45,14 @@ jobs:
           name: playwright-report
           path: playwright-report
 
-      - name: Check report folder
+      - name: Verify report exists
+        run: |
+          if [ ! -d "playwright-report" ] || [ -z "$(ls -A playwright-report)" ]; then
+            echo "Error: report folder is empty!"
+            exit 1
+          fi
+
+      - name: List report files
         run: ls -R playwright-report
 
       - name: Deploy to GitHub Pages
@@ -53,3 +61,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: playwright-report
           publish_branch: gh-pages
+          user_name: github-actions
+          user_email: github-actions@github.com
+          force_orphan: true
