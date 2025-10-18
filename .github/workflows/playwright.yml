@@ -2,9 +2,15 @@ name: Playwright Tests
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Manual Deploy"
+        required: false
+        default: "Manual deploy"
 
 jobs:
   test:
