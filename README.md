@@ -1,6 +1,6 @@
 🧩 SauceDemo Automation Test Framework
 
-![Automated tests](https://github.com/Grigory98/SauceDemoAutomationTestFramework/actions/workflows/playwright.yml/badge.svg?branch=main)
+![Tests](https://github.com/Grigory98/SauceDemoAutomationTestFramework/actions/workflows/playwright.yml/badge.svg) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Автоматизированный фреймворк для UI-тестирования сайта saucedemo.com
 с использованием Playwright + TypeScript и архитектуры Page Object Model.
