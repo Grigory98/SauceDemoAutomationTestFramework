@@ -1,6 +1,6 @@
 🧩 SauceDemo Automation Test Framework
 
-![Tests](https://github.com/Grigory98/SauceDemoAutomationTestFramework/actions/workflows/playwright.yml/badge.svg)
+![Playwright Tests](https://github.com/Grigory98/SauceDemoAutomationTestFramework/actions/workflows/playwright.yml/badge.svg)
 
 Автоматизированный фреймворк для UI-тестирования сайта saucedemo.com
 с использованием Playwright + TypeScript и архитектуры Page Object Model.
@@ -37,6 +37,7 @@ SauceDemoAutomationTestFramework/
 Отчётность Playwright HTML Report
 Архитектура Page Object Model (POM)
 Среда исполнения Node.js ≥ 18
+
 ⚙️ Установка и запуск
 1️⃣ Клонируйте проект
 git clone https://github.com/Grigory98/SauceDemoAutomationTestFramework.git
