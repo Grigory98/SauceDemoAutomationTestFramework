@@ -126,7 +126,7 @@ npx playwright codegen https://www.saucedemo.com
 npx playwright test --grep "Login"
 ```
 
-📈 Возможные улучшения
+📈 **Возможные улучшения**
 
 🔹 Интеграция с Allure Reports
 
