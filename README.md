@@ -1,4 +1,4 @@
-🧩 SauceDemo Automation Test Framework
+🧩 **SauceDemo Automation Test Framework**
 
 [![Playwright Tests](https://github.com/Grigory98/SauceDemoAutomationTestFramework/actions/workflows/playwright.yml/badge.svg)](https://github.com/Grigory98/SauceDemoAutomationTestFramework/actions/workflows/playwright.yml)
 
@@ -20,7 +20,7 @@
 
 🧰 TypeScript — строгая типизация, автодополнение, чистая структура кода
 
-📁 Структура проекта
+📁 **Структура проекта**
 SauceDemoAutomationTestFramework/
 <p>│</p>
 <p>├── components/ # Повторно используемые UI-компоненты</p>
@@ -30,14 +30,14 @@ SauceDemoAutomationTestFramework/
 <p>├── package.json # Зависимости и скрипты</p>
 <p>└── tsconfig.json # Настройки TypeScript</p>
 
-🛠️ Технологии
-Язык: TypeScript
-Тестовый раннер: Playwright Test Runner
-Отчётность: Playwright HTML Report
-Архитектура: Page Object Model (POM)
-Среда исполнения: Node.js
+🛠️ **Технологии**
+<p>Язык: TypeScript</p>
+<p>Тестовый раннер: Playwright Test Runner</p>
+<p>Отчётность: Playwright HTML Report</p>
+<p>Архитектура: Page Object Model (POM)</p>
+<p>Среда исполнения: Node.js</p>
 
-⚙️ Установка и запуск
+⚙️ **Установка и запуск**
 <p>1️⃣ Клонируйте проект</p>
 
 ```
@@ -62,7 +62,7 @@ npx playwright test
 npx playwright show-report
 ```
 
-🧩 Пример теста
+🧩 **Пример теста**
 ```
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../page-objects/LoginPage';
@@ -80,7 +80,7 @@ await expect(inventoryPage.inventoryItems).toHaveCount(6);
 });
 ```
 
-🧱 Архитектура проекта
+🧱 **Архитектура проекта**
 playwright.config.ts
 <p>├── Определяет базовый URL, таймауты, браузеры</p>
 <p>├── Настраивает отчётность и поведение при падениях</p>
@@ -95,12 +95,14 @@ tests/
 <p>├── login.spec.ts</p>
 <p>└── cart.spec.ts</p>
 
-⚡ Полезные команды
+⚡ **Полезные команды**
+
 Запуск всех тестов:
 
 ```
 npx playwright test 
 ```
+
 Запуск с интерактивным UI:
 
 ```
