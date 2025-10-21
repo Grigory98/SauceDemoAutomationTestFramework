@@ -82,19 +82,19 @@ await expect(inventoryPage.inventoryItems).toHaveCount(6);
 
 🧱 **Архитектура проекта**
 
-playwright.config.ts
-<p>├── Определяет базовый URL, таймауты, браузеры</p>
-<p>├── Настраивает отчётность и поведение при падениях</p>
-<p>└── Поддерживает запуск в headless/headful режимах</p>
+**playwright.config.ts**
+├── Определяет базовый URL, таймауты, браузеры<br>
+├── Настраивает отчётность и поведение при падениях<br>
+└── Поддерживает запуск в headless/headful режимах<br>
 
-page-objects/
-<p>├── LoginPage.ts – методы: goto(), login()</p>
-<p>├── InventoryPage.ts – методы: addToCart(), getCartCount()</p>
-<p>└── CartPage.ts – методы: checkout(), removeItem()</p>
+**page-objects/**
+├── LoginPage.ts – методы: goto(), login()<br>
+├── InventoryPage.ts – методы: addToCart(), getCartCount()<br>
+└── CartPage.ts – методы: checkout(), removeItem()<br>
 
-tests/
-<p>├── login.spec.ts</p>
-<p>└── cart.spec.ts</p>
+**tests/**
+├── login.spec.ts<br>
+└── cart.spec.ts<br>
 
 ⚡ **Полезные команды**
 
