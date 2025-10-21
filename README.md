@@ -22,13 +22,13 @@
 
 📁 **Структура проекта**
 SauceDemoAutomationTestFramework/
-<p>│</p>
-<p>├── components/ # Повторно используемые UI-компоненты</p>
-<p>├── page-objects/ # Page Object классы (LoginPage, InventoryPage, CartPage и др.)</p>
-<p>├── tests/ # Тестовые сценарии</p>
-<p>├── playwright.config.ts # Основная конфигурация Playwright</p>
-<p>├── package.json # Зависимости и скрипты</p>
-<p>└── tsconfig.json # Настройки TypeScript</p>
+│<br>
+├── components/ # Повторно используемые UI-компоненты<br>
+├── page-objects/ # Page Object классы (LoginPage, InventoryPage, CartPage и др.)<br>
+├── tests/ # Тестовые сценарии<br>
+├── playwright.config.ts # Основная конфигурация Playwright<br>
+├── package.json # Зависимости и скрипты<br>
+└── tsconfig.json # Настройки TypeScript<br>
 
 🛠️ **Технологии**
 <p>Язык: TypeScript</p>
