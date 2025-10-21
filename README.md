@@ -40,17 +40,22 @@ SauceDemoAutomationTestFramework/
 
 ⚙️ Установка и запуск
 <p>1️⃣ Клонируйте проект</p>
+```
 git clone https://github.com/Grigory98/SauceDemoAutomationTestFramework.git
 cd SauceDemoAutomationTestFramework
-
+```
 <p>2️⃣ Установите зависимости</p>
+```
 npm install
-
+```
 <p>3️⃣ Запустите тесты</p>
+```
 npx playwright test
-
+```
 <p>4️⃣ Откройте HTML-отчёт</p>
+```
 npx playwright show-report
+```
 
 🧩 Пример теста
 ```
