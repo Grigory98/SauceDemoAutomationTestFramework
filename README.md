@@ -39,20 +39,21 @@ SauceDemoAutomationTestFramework/
 Среда исполнения Node.js ≥ 18
 
 ⚙️ Установка и запуск
-1️⃣ Клонируйте проект
+<p>1️⃣ Клонируйте проект</p>
 git clone https://github.com/Grigory98/SauceDemoAutomationTestFramework.git
 cd SauceDemoAutomationTestFramework
 
-2️⃣ Установите зависимости
+<p>2️⃣ Установите зависимости</p>
 npm install
 
-3️⃣ Запустите тесты
+<p>3️⃣ Запустите тесты</p>
 npx playwright test
 
-4️⃣ Откройте HTML-отчёт
+<p>4️⃣ Откройте HTML-отчёт</p>
 npx playwright show-report
 
 🧩 Пример теста
+```
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../page-objects/LoginPage';
 import { InventoryPage } from '../page-objects/InventoryPage';
@@ -67,6 +68,7 @@ await loginPage.login('standard_user', 'secret_sauce');
 await expect(inventoryPage.inventoryList).toBeVisible();
 await expect(inventoryPage.inventoryItems).toHaveCount(6);
 });
+```
 
 🧱 Архитектура проекта
 playwright.config.ts
@@ -90,6 +92,7 @@ npx playwright test --ui Запуск с интерактивным UI
 npx playwright show-report Просмотр отчёта
 npx playwright codegen https://www.saucedemo.com Запись нового теста
 npx playwright test --grep "Login" Запуск тестов по имени
+
 📈 Возможные улучшения
 
 🔹 Интеграция с Allure Reports
