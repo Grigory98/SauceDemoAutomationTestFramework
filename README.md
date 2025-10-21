@@ -31,12 +31,11 @@ SauceDemoAutomationTestFramework/
 <p>└── tsconfig.json # Настройки TypeScript</p>
 
 🛠️ Технологии
-Компонент Технология
-Язык TypeScript
-Тестовый раннер Playwright Test Runner
-Отчётность Playwright HTML Report
-Архитектура Page Object Model (POM)
-Среда исполнения Node.js ≥ 18
+Язык: TypeScript
+Тестовый раннер: Playwright Test Runner
+Отчётность: Playwright HTML Report
+Архитектура: Page Object Model (POM)
+Среда исполнения: Node.js
 
 ⚙️ Установка и запуск
 <p>1️⃣ Клонируйте проект</p>
@@ -97,12 +96,32 @@ tests/
 <p>└── cart.spec.ts</p>
 
 ⚡ Полезные команды
-Команда Назначение
-npx playwright test Запуск всех тестов
-npx playwright test --ui Запуск с интерактивным UI
-npx playwright show-report Просмотр отчёта
-npx playwright codegen https://www.saucedemo.com Запись нового теста
-npx playwright test --grep "Login" Запуск тестов по имени
+Запуск всех тестов:
+
+```
+npx playwright test 
+```
+Запуск с интерактивным UI:
+
+```
+npx playwright test --ui 
+```
+
+Просмотр отчёта:
+```
+npx playwright show-report 
+```
+
+Запись нового теста:
+```
+npx playwright codegen https://www.saucedemo.com 
+```
+
+Запуск тестов по имени:
+
+```
+npx playwright test --grep "Login"
+```
 
 📈 Возможные улучшения
 
